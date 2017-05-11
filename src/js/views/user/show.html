@@ -1,0 +1,22 @@
+
+<div class="subNav">
+<a ui-sref="donate" class="subNavBtn btn">Donate</a>
+<button ng-click="usersShow.delete()" class="subNavBtn btn">Delete Account</button>
+</div>
+
+<h2 ng-hide="usersShow.selectedInfo">Click your info markers to see your data.</h2>
+
+<profile-map user-info="usersShow.userInfo" selected-info="usersShow.selectedInfo"></profile-map>
+
+<div class="row userInfo" ng-show="usersShow.selectedInfo">
+  <div class="infoData">
+    <p><span>Number of Homeless People: </span> {{ usersShow.selectedInfo.number }}</p>
+    <p><span>Are there children? </span> {{ usersShow.selectedInfo.children }}</p>
+    <p><span>Are there pets? </span> {{ usersShow.selectedInfo.pets }}</p>
+    <p><span>Any other info? </span> {{ usersShow.selectedInfo.otherInfo }}</p>
+  </div>
+  <div class="infoBtn">
+    <button ng-click="usersShow.deleteInfo()" class="subNavBtn btn">Delete</button>
+    <a ui-sref="infoEdit({ id: usersShow.selectedInfo.id })" class="subNavBtn btn">Edit</a>
+  </div>
+</div>

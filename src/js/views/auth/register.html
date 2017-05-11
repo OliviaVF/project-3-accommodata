@@ -1,0 +1,29 @@
+  <div class="row form">
+    <h2>Register</h2>
+    <form name="register.registerForm" ng-submit="register.submit()" novalidate class="form-group">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" ng-model="register.user.username" required class="form-control">
+        <div class="messages error" ng-messages="register.registerForm.username.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.username.$touched) && register.registerForm.username.$invalid">
+          <div class="message" ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" ng-model="register.user.password" required class="form-control">
+        <div class="messages error" ng-messages="register.registerForm.password.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.password.$touched) && register.registerForm.password.$invalid">
+          <div class="message" ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+      <div>
+        <label for="passwordConfirmation">Password Confirmation</label>
+        <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation" required class="form-control">
+        <div class="messages error" ng-messages="register.registerForm.passwordConfirmation.$error" role="alert" ng-show="(register.registerForm.$submitted || register.registerForm.passwordConfirmation.$touched) && register.registerForm.passwordConfirmation.$invalid">
+          <div class="message" ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+
+      <button class="btn">Register</button>
+    </form>
+
+  </div>

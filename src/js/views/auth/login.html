@@ -1,0 +1,27 @@
+<div class="row form" >
+<h2>Login</h2>
+<form name="login.loginForm" ng-submit="login.submit()" novalidate class="form-group">
+  <div>
+    <label for="username">Username</label>
+    <input type="username" name="username" id="username" ng-model="login.credentials.username" required class="form-control">
+    <div class="messages error" ng-messages="login.loginForm.username.$error" role="alert" ng-show="(login.loginForm.$submitted || login.loginForm.username.$touched) && login.loginForm.username.$invalid">
+      <div class="message" ng-message="required">Please enter a value for this field.</div>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" ng-model="login.credentials.password" required class="form-control">
+    <div class="messages error" ng-messages="login.loginForm.password.$error" role="alert" ng-show="(login.loginForm.$submitted || login.loginForm.password.$touched) && login.loginForm.password.$invalid">
+      <div class="message" ng-message="required">Please enter a value for this field.</div>
+    </div>
+  </div>
+
+  <button class="btn">Login</button>
+</form>
+<p class="bottomLine">OR</p>
+
+
+
+<button class="btn" id="facebook" ng-click="login.authenticate('facebook')">Facebook login</button>
+
+</div>

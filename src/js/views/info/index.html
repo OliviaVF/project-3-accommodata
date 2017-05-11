@@ -1,0 +1,31 @@
+<p>Filter by Info Type: </p>
+
+<form class="search-form filter">
+  <div class="form-group">
+    <select name="categoryInfo" required ng-model="infoIndex.categoryInfo" class="categoryInfo" >
+      <option selected value="">All</option>
+      <option value="Number">Density of People</option>
+      <option value="Children">Areas with Children</option>
+      <option value="Pets">Areas with Pets</option>
+    </select>
+  </div>
+</form>
+
+<p>Filter by Resource Type: </p>
+
+<form class="search-form">
+  <div class="form-group">
+    <select name="categoryResource" required ng-model="infoIndex.categoryResource" class="categoryResource">
+      <option selected value="">All</option>
+      <option value="Accommodation">Accommodation</option>
+      <option value="Advice">Advice</option>
+      <option value="Day Centre">Day Centre</option>
+      <option value="Health Service">Health Service</option>
+    </select>
+  </div>
+</form>
+
+<p>Distance From You: {{infoIndex.distance/1000 | number: 2}}KM</p>
+<input type="range" min="1000" max="5000" name="slider" id="slider" ng-model="infoIndex.distance" value="2500">
+
+<info-map resources="infoIndex.filteredResources" info="infoIndex.filteredInfo"></info-map>

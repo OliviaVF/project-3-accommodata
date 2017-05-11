@@ -1,0 +1,92 @@
+<div>
+  <div id="pac-container">
+    <label >If you have not allowed access to your location, or would like to change it, use the search bar below.</label>
+    <input id="pac-input" type="text" placeholder="Search Location" autocomplete ng-model="infoNew.info.location" lat="infoNew.info.autocompleteLat" lng="infoNew.info.autocompleteLng" class="form-control">
+  </div>
+</div>
+
+<h2>{{ infoNew.message }}</h2>
+
+<user-map chosen-location="{ lat: infoNew.info.autocompleteLat, lng: infoNew.info.autocompleteLng }" info="infoNew.allInfo" ng-if="infoNew.allInfo.$resolved" data-method="infoNew.ctrlFn"></user-map>
+
+<div class="row form">
+  <div class="formContainer">
+
+    <form name="infoNew.newForm" ng-submit="infoNew.create()" novalidate>
+
+        <div class="question" id="q1">
+          <h4>Number of people?</h4>
+          <ul class="q1">
+            <li>
+              <input type="radio" id="1" name="number" ng-model="infoNew.info.number" ng-value="1">
+              <label class="num" for="1" ng-click="infoNew.scroll()">1</label>
+            </li>
+            <li>
+              <input type="radio" id="2" name="number" ng-model="infoNew.info.number" ng-value="2">
+              <label class="num" for="2" ng-click="infoNew.scroll()">2</label>
+            </li>
+            <li>
+              <input type="radio" id="3" name="number" ng-model="infoNew.info.number" ng-value="3">
+              <label class="num" for="3" ng-click="infoNew.scroll()">3</label>
+            </li>
+            <li>
+              <input type="radio" id="4" name="number" ng-model="infoNew.info.number" ng-value="4">
+              <label class="num" for="4" ng-click="infoNew.scroll()">4</label>
+            </li>
+            <li>
+              <input type="radio" id="5" name="number" ng-model="infoNew.info.number" ng-value="5">
+              <label class="num" for="5" ng-click="infoNew.scroll()">5</label>
+            </li>
+          </ul>
+          <div ng-messages="infoNew.newForm.number.$error" role="alert" ng-show="(infoNew.newForm.$submitted || infoNew.newForm.number.$touched) && infoNew.newForm.number.$invalid" class="error">
+            <div ng-message="required">Please enter a value for this field.</div>
+          </div>
+        </div>
+
+      <div class="question" id="q2">
+        <h4>Are there children?</h4>
+        <ul class="q2">
+          <li>
+            <input type="radio" id="childTrue" name="children" ng-model="infoNew.info.children" value="Yes">
+            <label for="childTrue" ng-click="infoNew.scroll()">Yes</label>
+          </li>
+          <li>
+            <input type="radio" id="childFalse" name="children" ng-model="infoNew.info.children" value="No">
+            <label for="childFalse" ng-click="infoNew.scroll()">No</label>
+
+          </li>
+        </ul>
+        <div ng-messages="infoNew.newForm.children.$error" role="alert" ng-show="(infoNew.newForm.$submitted || infoNew.newForm.children.$touched) && infoNew.newForm.children.$invalid" class="error">
+          <div ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+
+      <div class="question" id="q3">
+        <h4>Are there pets?</h4>
+         <ul class="q3">
+          <li>
+             <input type="radio" id="petTrue" name="pets" ng-model="infoNew.info.pets" value="Yes">
+             <label for="petTrue" ng-click="infoNew.scroll()">Yes</label>
+           </li>
+           <li>
+             <input type="radio" id="petFalse" name="pets" ng-model="infoNew.info.pets" value="No">
+             <label for="petFalse" ng-click="infoNew.scroll()">No</label>
+           </li>
+         </ul>
+         <div ng-messages="infoNew.newForm.pets.$error" role="alert" ng-show="(infoNew.newForm.$submitted || infoNew.newForm.pets.$touched) && infoNew.newForm.pets.$invalid" class="error">
+           <div ng-message="required">Please enter a value for this field.</div>
+         </div>
+      </div>
+
+      <div class="question" id="q4">
+        <h4>Comment</h4>
+        <label for="comment"></label>
+        <textarea name="comment" id="comment" ng-model="infoNew.info.otherInfo" placeholder="Type here..."></textarea>
+      </div>
+
+      <button class="btn" ng-if="(!infoNew.newForm.$pristine)">Submit</button>
+
+    </form>
+
+  </div>
+</div>
